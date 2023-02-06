@@ -7,11 +7,16 @@
 // create a 1 to many connection with a variable - querySelectorAll ("queryString")
 let theButtons = document.querySelectorAll("#buttonHolder img"),
 	theHeading = document.querySelector("#headLine h1"),
-	theBoard = document.querySelector(".puzzle-board");
+	theBoard = document.querySelector(".puzzle-board"),
+	puzzlePieces = document.querySelectorAll(".puzzle-pieces img"),
+	dropZones = document.querySelectorAll(".drop-zone"),
+	
+	draggedPiece;
+
 // Step3
 // functionality always goes in the middle -> how do we want the app to behave?
-function changeBGImage() {
-	// debugger;
+
+// debugger;
 	
 	// start with the object, then change a property 
 	// or run a method
@@ -19,11 +24,34 @@ function changeBGImage() {
 	// theHeading.textContent = "Drag and Drop: The Cabin";	
 	// theHeading.classList.add("green-headLine");
 	
-// 	let theNewSource = "images/backGround" + this.id + ".jpg";
+	// let theNewSource = "images/backGround" + this.id + ".jpg";
 
-// 	console.log(theNewSource);//
+	// console.log(theNewSource);
 
-	theBoard.style.backgroundImage = `url('images/backGround${this.id}.jpg')`;
+
+function changeBGImage() {
+	theBoard.style.backgroundImage = `url("images/backGround${this.id}.jpg")`;
+}
+// function changeImage
+// 	puzzlePieces.so= `url("topLeft${this.id}.jpg")`;
+// }
+
+function handleStartDrag() {
+	console.log("started dragging this piece:", this);
+
+	draggedPiece = this;
+}
+
+function handleDragOver(e) {
+	e.preventDefault()
+	console.log("dragged piece over:");
+}
+
+function handleDrop(e) {
+	e.preventDefault()
+	console.log("dropped piece:");
+
+	this.appendChild(draggedPiece)
 }
 
 // Step2
@@ -35,3 +63,15 @@ function changeBGImage() {
 
 // 1 to many event handling
 theButtons.forEach(button => button.addEventListener("click", changeBGImage));
+
+// puzzlePieces.forEach(button => button.addEventListener("click", changeImage));
+
+// add drag event handling to puzzle pieces
+
+puzzlePieces.forEach(piece => piece.addEventListener("dragstart", handleStartDrag));
+
+dropZones.forEach(zone => zone.addEventListener("dragover", handleDragOver));
+
+dropZones.forEach(zone => zone.addEventListener("drop", handleDrop));
+
+// puzzlePieces.forEach(piece=>piece.addEventListener("dragstart", handleStartDrag))

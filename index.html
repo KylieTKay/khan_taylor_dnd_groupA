@@ -7,6 +7,8 @@
 	<link href="css/main.css" rel="stylesheet" type="text/css">
 </head>
 <body>
+	<a href="">this should go here</a>
+
 	<header id="headLine">
 		<h1>drag and drop!</h1>
 		<p>solve the puzzle</p>
@@ -14,14 +16,20 @@
 	<section id="game-boards">
 		<!-- these are the draggable pieces -->
 		<div class="puzzle-pieces">
-			<img src="images/topLeft0.jpg" class="puzzle-image" alt="top left">
+			<img  src="images/topLeft0.jpg" class="puzzle-image" alt="top left">
 			<img src="images/topRight0.jpg" class="puzzle-image" alt="top right">
 			<img src="images/bottomLeft0.jpg" class="puzzle-image" alt="bottom left">
 			<img src="images/bottomRight0.jpg" class="puzzle-image" alt="bottom right">
 		</div>
 
 		<!-- we want to drop the draggable pieces here -->
-		<div class="puzzle-board"></div>
+		<div class="puzzle-board">
+			<!-- div.class*4 -->
+			<div class="drop-zone tl"></div>
+			<div class="drop-zone tr"></div>
+			<div class="drop-zone bl"></div>
+			<div class="drop-zone br"></div>
+		</div>
 	</section>
 
 	<footer>
