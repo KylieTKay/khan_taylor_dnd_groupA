@@ -19,9 +19,11 @@ function changeBGImage() {
 	// theHeading.textContent = "Drag and Drop: The Cabin";	
 	// theHeading.classList.add("green-headLine");
 	
-	let theNewSource = "images/backGround" + this.id + ".jpg";
+// 	let theNewSource = "images/backGround" + this.id + ".jpg";
 
-	console.log(theNewSource);
+// 	console.log(theNewSource);//
+
+	theBoard.style.backgroundImage = `url('images/backGround${this.id}.jpg')`;
 }
 
 // Step2
