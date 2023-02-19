@@ -75,6 +75,8 @@ body {
 .br img {  top: 0;}
 
 
+/* #replay {} */
+
 header {
 	position: relative;
 	top: 20px;
@@ -116,8 +118,8 @@ footer {
 	opacity:.5;
 }
 
-#headLine h1 { transition: all ease 1.5s;}
+.puzzle-board { transition: ease-in .8s;}
 
-.green-headLine {
+/* .green-headLine {
 	color: green;
-}
+} */
