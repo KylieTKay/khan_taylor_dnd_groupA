@@ -3,12 +3,11 @@
 <head>
 <meta charset="utf-8">
 	<title>Drag and Drop Puzzle Game</title>
+	<link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.2.1/css/all.css">
 	<link href="https://fonts.googleapis.com/css?family=Luckiest+Guy" rel="stylesheet">
 	<link href="css/main.css" rel="stylesheet" type="text/css">
 </head>
 <body>
-	<a href="">this should go here</a>
-
 	<header id="headLine">
 		<h1>drag and drop!</h1>
 		<p>solve the puzzle</p>
@@ -16,10 +15,10 @@
 	<section id="game-boards">
 		<!-- these are the draggable pieces -->
 		<div class="puzzle-pieces">
-			<img  src="images/topLeft0.jpg" class="puzzle-image" alt="top left">
-			<img src="images/topRight0.jpg" class="puzzle-image" alt="top right">
-			<img src="images/bottomLeft0.jpg" class="puzzle-image" alt="bottom left">
-			<img src="images/bottomRight0.jpg" class="puzzle-image" alt="bottom right">
+			<img id="puzzle-image-tl" src="images/topLeft0.jpg" class="puzzle-image" alt="top left">
+			<img id="puzzle-image-tr" src="images/topRight0.jpg" class="puzzle-image" alt="top right">
+			<img id="puzzle-image-bl" src="images/bottomLeft0.jpg" class="puzzle-image" alt="bottom left">
+			<img id="puzzle-image-br" src="images/bottomRight0.jpg" class="puzzle-image" alt="bottom right">
 		</div>
 
 		<!-- we want to drop the draggable pieces here -->
@@ -30,15 +29,25 @@
 			<div class="drop-zone bl"></div>
 			<div class="drop-zone br"></div>
 		</div>
+		<a id="replay" href=""> Restart <i class="fa-solid fa-rotate-left"></i></a>
 	</section>
 
 	<footer>
-		<p>click thumb to change pieces!</p>
+		<p>click thumbnails to change puzzle!</p>
 		<nav id="buttonHolder">
-			<img id="0" src="images/buttonZero.jpg" alt="thumbnail">
-			<img id="1"src="images/buttonOne.jpg" alt="thumbnail">
-	    	<img id="2"src="images/buttonTwo.jpg" alt="thumbnail">
-			<img id="3"src="images/buttonThree.jpg" alt="thumbnail">
+
+			<!-- <img id="0" src="images/buttonZero.jpg" alt="thumbnail"> -->
+			<a class="replay" href=""><img id="0" src="images/buttonZero.jpg" alt="thumbnail"></a>
+
+			<img id=1 src="images/buttonOne.jpg" alt="thumbnail">
+			
+			<!-- <a id="1" class="replay" href=""><img src="images/buttonOne.jpg" alt="thumbnail"></a> -->
+
+			<a class="replay" href=""><img id="2"src="images/buttonTwo.jpg" alt="thumbnail"></a>
+			
+			<a class="replay" href=""><img id="3"src="images/buttonThree.jpg" alt="thumbnail"></a>
+
+			
 		</nav>
 	</footer>
 

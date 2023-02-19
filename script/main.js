@@ -10,6 +10,13 @@ let theButtons = document.querySelectorAll("#buttonHolder img"),
 	theBoard = document.querySelector(".puzzle-board"),
 	puzzlePieces = document.querySelectorAll(".puzzle-pieces img"),
 	dropZones = document.querySelectorAll(".drop-zone"),
+
+	puzzleImageTL = document.querySelector("#puzzle-image-tl"),
+	puzzleImageTR = document.querySelector("#puzzle-image-tr"),
+	puzzleImageBL = document.querySelector("#puzzle-image-bl"),
+	puzzleImageBR = document.querySelector("#puzzle-image-br"),
+
+	restart = document.querySelectorAll("#replay"),
 	
 	draggedPiece;
 
@@ -30,15 +37,34 @@ let theButtons = document.querySelectorAll("#buttonHolder img"),
 
 
 function changeBGImage() {
+		// the `` is a JavaScript template string. It tells the JS enging to evaluate the expression
+	// inside the braces - run that little bit of code. In this case it's just pulling the ID of the
+	// button we clicked on and putting it at the end of the image name (0, 1, 2, 3)
+	// and updating the background-image style of the puzzle board element.
+
+	restart.href = `index.html `;
+	// bug fix #2 should go here. it's at most 3 lines of JS code.
+	
+
+
 	theBoard.style.backgroundImage = `url("images/backGround${this.id}.jpg")`;
+	
+	console.log("new puzzle selected")
 }
-// function changeImage
-// 	puzzlePieces.so= `url("topLeft${this.id}.jpg")`;
-// }
+
+function changeImage() {
+	puzzleImageTL.src = `images/topLeft${this.id}.jpg`;
+	puzzleImageTR.src = `images/topRight${this.id}.jpg`;
+	puzzleImageBL.src = `images/bottomLeft${this.id}.jpg`;
+	puzzleImageBR.src = `images/bottomRight${this.id}.jpg`;
+}
+
 
 function handleStartDrag() {
 	console.log("started dragging this piece:", this);
 
+	// store a reference to the puzzle piece image that we're dragging
+	// so we can use it later and move it to a drop zone
 	draggedPiece = this;
 }
 
@@ -50,28 +76,52 @@ function handleDragOver(e) {
 function handleDrop(e) {
 	e.preventDefault()
 	console.log("dropped piece:");
+	// bug fix #1 should go here, and it's at most 3 lines of JS code
 
-	this.appendChild(draggedPiece)
+	// this line is going to move the dragged piece from the left side of the board
+	// into whatever drop zone we choose. appendChild means "add element to the container"
+
+	// 	// Select first child element:
+	// const pieces = document.getElementById(".puzzle-pieces").children[0, 1, 2, 3];
+		
+
+
+	this.appendChild(draggedPiece);		
+	// Replace the text node:
+	// pieces.replaceChild(draggedPiece, pieces.childNodes[0, 1, 2, 3]);
+	// draggedPiece.replaceChild(puzzlePieces);
 }
+
+
+
+
+// function removeThenAdd() {      
+// 	puzzlePieces.find("div").empty().append();
+//   }
+
+  
 
 // Step2
 // event handling always goes at the bottom =>
 // how do we want users to interact with our app
 
-// 1 to 1 event handling
+// TL to 1 event handling
 // theButton.addEventListener("click", changeBGImage);
 
 // 1 to many event handling
 theButtons.forEach(button => button.addEventListener("click", changeBGImage));
 
-// puzzlePieces.forEach(button => button.addEventListener("click", changeImage));
+theButtons.forEach(button => button.addEventListener("click", changeImage));
 
 // add drag event handling to puzzle pieces
 
 puzzlePieces.forEach(piece => piece.addEventListener("dragstart", handleStartDrag));
 
+// puzzlePieces.forEach(piece => piece.addEventListener("replace", removeThenAdd));
+
 dropZones.forEach(zone => zone.addEventListener("dragover", handleDragOver));
 
 dropZones.forEach(zone => zone.addEventListener("drop", handleDrop));
+
 
 // puzzlePieces.forEach(piece=>piece.addEventListener("dragstart", handleStartDrag))
